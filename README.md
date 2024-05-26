@@ -29,7 +29,7 @@ Note: All checkpoints used are from huggingface.
     ```
     python inference.py \
     --input="<path/to/folder/or/imagefile>" \
-    --prompt="luxury bedroom interior" # single text or text file with newline separated prompts \
+    --prompt="prompt text" # single text or text file with newline separated prompts \
     --save_dir="<path/to/save/folder>" \
     --optimize # Use optimization techniques to reduce compute and improve inference time \
     ```
