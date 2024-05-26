@@ -1,0 +1,1 @@
+python inference.py --input="/content/drive/MyDrive/ImageGen-Study-Avataar/results/no-crop/2_nocrop-canny.png" --prompt="luxury bedroom interior" --controlnet_repo="/content/drive/MyDrive/ImageGen-Study-Avataar/checkpoints/controlnet/canny" --save_dir="/content/drive/MyDrive/ImageGen-Study-Avataar/data-1/inference/no-crop/" --inference_steps=20 --optimize
