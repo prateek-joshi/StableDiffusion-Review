@@ -6,7 +6,6 @@ import argparse
 import torch
 import time
 import glob
-import cv2
 import os
 
 generator = torch.manual_seed(12345)
@@ -32,7 +31,7 @@ if __name__ == '__main__':
   )
   parser.add_argument(
     '--sd_repo', required=False,
-    default='/content/drive/MyDrive/ImageGen-Study-Avataar/checkpoints/sd-v1.5'
+    default='runwayml/stable-diffusion-v1-5'
   )
   parser.add_argument(
     '--controlnet_repo', required=False,
@@ -48,7 +47,7 @@ if __name__ == '__main__':
   )
   parser.add_argument(
     '--inference_steps', required=False,
-    type=int, default=50
+    type=int, default=20
   )
   args = parser.parse_args()
 
@@ -57,18 +56,18 @@ if __name__ == '__main__':
   if args.controlnet_repo:
     controlnet = ControlNetModel.from_pretrained(
       args.controlnet_repo, torch_dtype=torch.float16, 
-      local_files_only=True
+      # local_files_only=True
     ).to(device)
     pipe = StableDiffusionControlNetPipeline.from_pretrained(
       args.sd_repo, controlnet=controlnet, torch_dtype=torch.float16,
-      local_files_only=True,
+      # local_files_only=True,
       safety_checker = None,
       requires_safety_checker = False
     ).to(device)
   else:
     pipe = StableDiffusionControlNetPipeline.from_pretrained(
       args.sd_repo, torch_dtype=torch.float16,
-      local_files_only=True,
+      # local_files_only=True,
       safety_checker = None,
       requires_safety_checker = False
     ).to(device)
